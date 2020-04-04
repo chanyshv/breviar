@@ -9,6 +9,7 @@ pytest = "*"
 [packages]
 click = "*"
 requests = "*"
+responses = "*"
 
 [requires]
 python_version = "3.8"
