@@ -6,11 +6,12 @@ import click
 
 from slink.core import bitly, SERVICES
 from .text import BITLY_CONFIGURE_PROMPT
-from .constants import CONFIGS_PATH
-from .utils import create_cli_config_files
+from .constants import CONFIGS_PATH, BITLY_CONFIG_PATH
+from .utils import create_cli_config_files, ErrorHandlingGroup, get_bitly_config
+from .errors import NotConfigured
 
 
-@click.group()
+@click.group(cls=ErrorHandlingGroup)
 @click.pass_context
 def slink(ctx: click.Context): pass
 
@@ -26,7 +27,7 @@ def configure(service):
         access_token = click.prompt(BITLY_CONFIGURE_PROMPT)
         json.dump({
             'access_token': access_token,
-        }, open(path.join(CONFIGS_PATH, 'bitly_config.json'), 'w'))
+        }, open(BITLY_CONFIG_PATH, 'w'))
 
 
 @slink.command()
@@ -35,6 +36,9 @@ def configure(service):
               type=click.Choice(list(map(oper.attrgetter('value'), SERVICES)))
               )
 def shorten(url: str, service):
-    if service == 'bitly':
-        shorten = bitly.BitlyClient().shorten_url(url)
+    if service == SERVICES.BITLY.value:
+        if not path.exists(BITLY_CONFIG_PATH):
+            raise NotConfigured(service)
+        config = get_bitly_config()
+        shorten = bitly.BitlyClient(config['access_token']).shorten_url(url)
         click.echo(shorten)
