@@ -5,11 +5,11 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+responses = "*"
 
 [packages]
 click = "*"
 requests = "*"
-responses = "*"
 cerberus = "*"
 colorama = "*"
 
