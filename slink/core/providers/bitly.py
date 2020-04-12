@@ -1,8 +1,8 @@
 import requests
 import cerberus
 
-from core.errors import WrongResponse
-from core.utils import reraise_requests
+from ...core.errors import WrongResponse
+from ...core.utils import reraise_requests
 from ..main import Provider
 
 

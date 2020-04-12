@@ -5,7 +5,7 @@ import json
 import click
 
 from slink.core import SERVICES
-from core.providers import bitly
+from ..core.providers import bitly
 from .text import BITLY_CONFIGURE_PROMPT
 from .constants import CONFIGS_PATH, BITLY_CONFIG_PATH
 from .utils import create_cli_config_files, ErrorHandlingGroup, get_bitly_config
