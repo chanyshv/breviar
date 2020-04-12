@@ -17,7 +17,7 @@ from .errors import NotConfigured
 def slink(ctx: click.Context): pass
 
 
-@slink.command()
+@slink.command(help='Configure a service')
 @click.option('-S', '--service', default='bitly', show_default=True,
               type=click.Choice(list(map(oper.attrgetter('value'), SERVICES)))
               )
@@ -31,7 +31,7 @@ def configure(service):
         }, open(BITLY_CONFIG_PATH, 'w'))
 
 
-@slink.command()
+@slink.command(help='Shorten a link')
 @click.argument('url')
 @click.option('-S', '--service', default='bitly', show_default=True,
               type=click.Choice(list(map(oper.attrgetter('value'), SERVICES)))
