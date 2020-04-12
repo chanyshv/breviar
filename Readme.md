@@ -1,4 +1,8 @@
 link shortener cli.
+## Installation
+```shell script
+pip3 install slink
+```
 
 ## Usage 
 ```
