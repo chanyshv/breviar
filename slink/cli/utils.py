@@ -1,4 +1,5 @@
 import os
+import sys
 
 import click
 import json
@@ -32,3 +33,4 @@ class ErrorHandlingGroup(click.Group):
             return self.main(*args, **kwargs)
         except SLinkError as e:
             click.echo(str(e))
+            sys.exit(1)

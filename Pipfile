@@ -12,6 +12,7 @@ click = "*"
 requests = "*"
 cerberus = "*"
 colorama = "*"
+mock-open = "*"
 
 [requires]
 python_version = "3.8"
