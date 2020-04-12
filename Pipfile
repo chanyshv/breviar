@@ -6,13 +6,13 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 responses = "*"
+mock-open = "*"
 
 [packages]
 click = "*"
 requests = "*"
 cerberus = "*"
 colorama = "*"
-mock-open = "*"
 
 [requires]
 python_version = "3.8"

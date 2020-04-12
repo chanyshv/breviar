@@ -8,9 +8,19 @@ setup(
         'colorama>=0.4.3',
         'click>=7.1.1',
         'cerberus>=1.3.2',
+        'requests>=2.0'
     ],
     entry_points={
         'console_scripts': [
             'slink = slink.entrypoint:entrypoint'
-        ]}
+        ]},
+    author='Damir Chanyshev',
+    author_email='hairygeek@yandex.com',
+    description='link shortener cli',
+    keywords='link url shortener cli bilty',
+    project_urls={
+        "Bug Tracker": "https://github.com/hairygeek/slink",
+        "Documentation": "https://github.com/hairygeek/slink",
+        "Source Code": "https://github.com/hairygeek/slink",
+    }
 )
