@@ -1,7 +1,7 @@
 import requests
 import cerberus
 
-from ...core.errors import WrongResponse
+from ...core.errors import WrongResponse, Forbidden
 from ...core.utils import reraise_requests
 from ..main import Provider
 
@@ -24,6 +24,8 @@ class BitlyProvider(Provider):
         }
         # todo: add general timeout
         resp = requests.post(self._SHORTEN_API_URL, headers=headers, json=data, timeout=5)
+        if resp.status_code == 403:
+            raise Forbidden
         json_resp = resp.json()
         is_valid = cerberus.Validator(self._RESPONSE_SCHEMA, allow_unknown=True).validate(json_resp)
         if not is_valid:
