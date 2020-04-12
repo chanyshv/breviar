@@ -16,7 +16,7 @@ setup(
         ]},
     author='Damir Chanyshev',
     author_email='hairygeek@yandex.com',
-    description='link shortener cli',
+    description='URL shortener cli',
     keywords='link url shortener cli bilty',
     project_urls={
         "Bug Tracker": "https://github.com/hairygeek/slink",
