@@ -2,7 +2,7 @@ import pytest
 import responses
 from mock_open import MockOpen
 
-from slink.core import BitlyClient
+from slink.core import BitlyProvider
 from slink.cli.constants import BITLY_CONFIG_PATH
 from tests import constants
 
@@ -10,7 +10,7 @@ from tests import constants
 @pytest.fixture()
 def mock_bitly_response():
     with responses.RequestsMock() as rsps:
-        rsps.add(responses.POST, BitlyClient._SHORTEN_API_URL, open(constants.BITLY_DATA).read())
+        rsps.add(responses.POST, BitlyProvider._SHORTEN_API_URL, open(constants.BITLY_DATA).read())
         yield rsps
 
 

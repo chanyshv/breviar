@@ -1,11 +1,12 @@
 import requests
 import cerberus
 
-from .errors import WrongResponse
-from .utils import reraise_requests
+from core.errors import WrongResponse
+from core.utils import reraise_requests
+from ..main import Provider
 
 
-class BitlyClient:
+class BitlyProvider(Provider):
     _SHORTEN_API_URL = 'https://api-ssl.bitly.com/v4/shorten'
     _RESPONSE_SCHEMA = {'link': {'type': 'string'}}
 

@@ -4,7 +4,8 @@ import json
 
 import click
 
-from slink.core import bitly, SERVICES
+from slink.core import SERVICES
+from core.providers import bitly
 from .text import BITLY_CONFIGURE_PROMPT
 from .constants import CONFIGS_PATH, BITLY_CONFIG_PATH
 from .utils import create_cli_config_files, ErrorHandlingGroup, get_bitly_config
@@ -40,5 +41,5 @@ def shorten(url: str, service):
         if not path.exists(BITLY_CONFIG_PATH):
             raise NotConfigured(service)
         config = get_bitly_config()
-        shorten = bitly.BitlyClient(config['access_token']).shorten_url(url)
+        shorten = bitly.BitlyProvider(config['access_token']).shorten_url(url)
         click.echo(shorten)
