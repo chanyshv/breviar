@@ -24,3 +24,14 @@ class NoResponse(SLinkError):
 
 class Forbidden(WrongResponse):
     _default_message = 'Forbidden error. Please check your access token and limits'
+
+
+class ProviderError(SLinkError):
+    _provider = 'unknown'
+    _error_message = None
+
+    def __init__(self, provider: str = None, error_message: str = None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        provider = provider or self._provider
+        error_message = error_message or self._error_message
+        self.message = f'{provider.title()} error. Error message :"{error_message}"'

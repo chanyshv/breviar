@@ -15,3 +15,5 @@ class ConfigNotValid(SLinkError):
         super().__init__(code, message, *args)
         self.message = f'Config of {Fore.GREEN + service + Style.RESET_ALL} service is not valid. To rewrite it run:\n' \
                        f'slink configure -S {service}'
+
+

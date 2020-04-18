@@ -4,7 +4,7 @@ import pytest
 import responses
 from mock_open import MockOpen
 
-from slink.core import BitlyProvider
+from slink.core import BitlyProvider, CuttlyProvider
 from slink.cli.constants import BITLY_CONFIG_PATH
 from tests import constants
 
@@ -28,6 +28,11 @@ def mock_bitly():
 @pytest.fixture()
 def bitly_provider(mock_argument):
     return BitlyProvider(os.getenv('BITLY_ACCESS_TOKEN'))
+
+
+@pytest.fixture()
+def cuttly_provider():
+    return CuttlyProvider(os.getenv('CUTTLY_ACCESS_TOKEN'))
 
 
 @pytest.fixture()
