@@ -1,4 +1,9 @@
 from slink.cli import slink
 
+
 def entrypoint():
-    slink(obj={})
+    slink()
+
+
+if __name__ == '__main__':
+    entrypoint()
