@@ -2,7 +2,7 @@ from setuptools import setup, find_namespace_packages
 
 setup(
     name="slink",
-    version="0.0.1",
+    version="0.0.1b",
     packages=find_namespace_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
         'colorama>=0.4.3',
