@@ -1,1 +1,2 @@
-from .bilty import bitly_group as bilty_group
+from .bilty import bitly_group
+from .cuttly import cuttly_group

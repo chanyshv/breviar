@@ -8,6 +8,7 @@ from ..core.errors import SLinkError, NoResponse
 
 class SERVICES(enum.Enum):
     BITLY = 'bitly'
+    CUTTLY = 'cuttly'
 
 
 class ErrorHandlingGroup(click.Group):

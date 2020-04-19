@@ -7,7 +7,7 @@ class NotConfigured(SLinkError):
     def __init__(self, service: str, code: str = None, message: str = None, *args):
         super().__init__(code, message, *args)
         self.message = f'Please configure {Fore.GREEN + service + Style.RESET_ALL} service. Run:\n' \
-                       f'slink configure -S {service}'
+                       f'slink {service} configure'
 
 
 class ConfigNotValid(SLinkError):

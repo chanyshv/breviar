@@ -1,6 +1,6 @@
 import click
 
-from .providers import bilty_group
+from .providers import cuttly_group, bitly_group
 from .utils import ErrorHandlingGroup
 
 
@@ -8,4 +8,5 @@ from .utils import ErrorHandlingGroup
 def slink(): pass
 
 
-slink.add_command(bilty_group, 'bitly')
+slink.add_command(bitly_group, 'bitly')
+slink.add_command(cuttly_group, 'cuttly')

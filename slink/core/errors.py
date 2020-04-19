@@ -34,4 +34,4 @@ class ProviderError(SLinkError):
         super().__init__(*args, **kwargs)
         provider = provider or self._provider
         error_message = error_message or self._error_message
-        self.message = f'{provider.title()} error. Error message :"{error_message}"'
+        self.message = f'{provider.title()} error. Error message: "{error_message}"'

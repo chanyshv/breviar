@@ -15,15 +15,15 @@ def create_cli_config_files():
     os.mkdir(CONFIGS_PATH)
 
 
-def get_bitly_config():
+def get_config(path: str, service: SERVICES, validation_schema: dict = None):
     try:
-        config = json.load(open(BITLY_CONFIG_PATH))
+        config = json.load(open(path))
     except json.JSONDecodeError as e:
-        raise ConfigNotValid(SERVICES.BITLY.value) from e
-    schema = {'access_token': {'type': 'string'}}
-    is_valid = cerberus.Validator(schema).validate(config)
-    if not is_valid:
-        raise ConfigNotValid(SERVICES.BITLY.value)
+        raise ConfigNotValid(service.value) from e
+    if validation_schema:
+        is_valid = cerberus.Validator(validation_schema).validate(config)
+        if not is_valid:
+            raise ConfigNotValid(SERVICES.BITLY.value)
     return config
 
 

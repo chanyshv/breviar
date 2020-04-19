@@ -28,7 +28,7 @@ class CuttlyProvider(Provider):
     def shorten(self, url: str) -> str:
         data = {
             'short': url,
-            'key': 'sdf',
+            'key': self._api_key,
         }
         r = rq.get(self._API_URL, params=data)
         if not r.text:

@@ -4,9 +4,10 @@ import json
 import click
 
 from ...core.providers import bitly
+from ...core.utils import SERVICES
 from ..text import BITLY_CONFIGURE_PROMPT
 from ..constants import CONFIGS_PATH, BITLY_CONFIG_PATH
-from ..utils import create_cli_config_files, get_bitly_config, ErrorHandlingGroup
+from ..utils import create_cli_config_files, get_config, ErrorHandlingGroup
 from ..errors import NotConfigured
 
 
@@ -29,6 +30,6 @@ def configure():
 def shorten(url: str):
     if not path.exists(BITLY_CONFIG_PATH):
         raise NotConfigured('bitly')
-    config = get_bitly_config()
+    config = get_config(BITLY_CONFIG_PATH, SERVICES.BITLY, {'access_token': {'type': 'string'}})
     shorten = bitly.BitlyProvider(config['access_token']).shorten_url(url)
     click.echo(shorten)
