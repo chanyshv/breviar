@@ -2,8 +2,8 @@ import requests as rq
 import cerberus
 
 from ..main import Provider
-
 from ..errors import WrongResponse, ProviderError
+from ..utils import reraise_requests
 
 
 class CuttlyProvider(Provider):
@@ -24,10 +24,11 @@ class CuttlyProvider(Provider):
     def __init__(self, api_key: str):
         self._api_key = api_key
 
+    @reraise_requests
     def shorten(self, url: str) -> str:
         data = {
             'short': url,
-            'key': self._api_key,
+            'key': 'sdf',
         }
         r = rq.get(self._API_URL, params=data)
         if not r.text:
