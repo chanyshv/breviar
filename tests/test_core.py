@@ -1,4 +1,4 @@
-from tests.constants import DEFAULT_FULL_URL
+from tests.constants import DEFAULT_FULL_URL, CUTTLY_SHORTENED_URL
 from slink.core.errors import ProviderError, WrongResponse
 
 import pytest
@@ -23,3 +23,7 @@ class TestCuttly:
     def test_invalid_json(self, cuttly_provider, mock_cuttly_invalid_json_response):
         with pytest.raises(WrongResponse):
             cuttly_provider.shorten(DEFAULT_FULL_URL)
+
+    def test_stats(self, cuttly_provider):
+        assert cuttly_provider.stats(CUTTLY_SHORTENED_URL)
+        ...

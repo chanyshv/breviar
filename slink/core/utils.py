@@ -3,7 +3,7 @@ import enum
 import click
 import requests.exceptions
 
-from ..core.errors import SLinkError, NoResponse
+from slink.core.errors import SLinkError, NoResponse
 
 
 class SERVICES(enum.Enum):

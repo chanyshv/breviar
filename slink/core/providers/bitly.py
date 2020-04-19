@@ -1,9 +1,9 @@
 import requests
 import cerberus
 
-from ...core.errors import WrongResponse, Forbidden, ProviderError
-from ...core.utils import reraise_requests
-from ..main import Provider
+from slink.core.errors import WrongResponse, Forbidden, ProviderError
+from slink.core.utils import reraise_requests
+from slink.core.main import Provider
 
 
 class BitlyProvider(Provider):
