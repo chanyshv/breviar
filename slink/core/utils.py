@@ -3,7 +3,7 @@ import enum
 import click
 import requests.exceptions
 
-from slink.core.errors import SLinkError, NoResponse
+from slink.core.errors import SLinkError, NoResponse, NoEthernetConnection
 
 
 class SERVICES(enum.Enum):
@@ -25,5 +25,7 @@ def reraise_requests(f):
             return f(*args, **kwargs)
         except requests.exceptions.ConnectTimeout as e:
             raise NoResponse from e
+        except requests.exceptions.ConnectionError as e:
+            raise NoEthernetConnection from e
 
     return deco

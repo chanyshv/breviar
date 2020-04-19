@@ -31,6 +31,7 @@ class CuttlyProvider(Provider):
                                              'title': {'type': 'string'},
                                              'fullLink': {'type': 'string'},
                                              }}}
+    _STATS_BASE_RESPONSE_SCHEMA = {'stats': {'type': 'dict', 'schema': {'status': {'type': 'integer'}}}}
     _API_URL = 'https://cutt.ly/api/api.php'
 
     def __init__(self, api_key: str):
@@ -73,9 +74,10 @@ class CuttlyProvider(Provider):
             'stats': url,
         }
         r = rq.get(self._API_URL, params=data)
+        self._validate_response(r, self._STATS_BASE_RESPONSE_SCHEMA)
         json_r = r.json()
-        self._validate_response(r, self._STATS_RESPONSE_SCHEMA)
         self._validate_status(json_r['stats']['status'], 1, self._STATS_STATUS_MAP)
+        self._validate_response(r, self._STATS_RESPONSE_SCHEMA)
         stats = json_r['stats']
         return {
             'title': stats['title'],

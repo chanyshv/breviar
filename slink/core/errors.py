@@ -22,6 +22,10 @@ class NoResponse(SLinkError):
     _default_message = 'Server does not respond'
 
 
+class NoEthernetConnection(SLinkError):
+    _default_message = "Can't connect to the server"
+
+
 class Forbidden(WrongResponse):
     _default_message = 'Forbidden error. Please check your access token and limits'
 

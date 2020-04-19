@@ -8,4 +8,6 @@ BITLY_CONFIG_PATH = 'tests/data/bitly_config'
 
 CUTTLY_SUCCESS_DATA = 'tests/data/cuttly_success'
 CUTTLY_FAIL_RESPONSE_DATA = 'tests/data/cuttly_fail_status'
+CUTTLY_STATS_SUCCESS_DATA = 'tests/data/cuttly_stats_success'
+CUTTLY_STATS_FAIL_STATUS_DATA = 'tests/data/cuttly_stats_fail_status'
 CUTTLY_SHORTENED_URL = 'https://cutt.ly/jt7qxxS'

@@ -32,24 +32,31 @@ def mock_cuttly_success():
         yield rsps
 
 
-@pytest.fixture()
-def mock_cuttly_fail_status():
-    with responses.RequestsMock() as rsps:
-        rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.CUTTLY_FAIL_RESPONSE_DATA).read())
-        yield rsps
+# @pytest.fixture()
+# def mock_cuttly_fail_status():
+#     with responses.RequestsMock() as rsps:
+#         rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.CUTTLY_FAIL_RESPONSE_DATA).read())
+#         yield rsps
+
+
+# @pytest.fixture()
+# def mock_cuttly_invalid_response():
+#     with responses.RequestsMock() as rsps:
+#         rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.INVALID_DATA).read())
+#         yield rsps
+
+
+# @pytest.fixture()
+# def mock_cuttly_invalid_json_response():
+#     with responses.RequestsMock() as rsps:
+#         rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.INVALID_JSON_DATA).read())
+#         yield rsps
 
 
 @pytest.fixture()
-def mock_cuttly_invalid_response():
+def mock_cuttly_stats_success():
     with responses.RequestsMock() as rsps:
-        rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.INVALID_DATA).read())
-        yield rsps
-
-
-@pytest.fixture()
-def mock_cuttly_invalid_json_response():
-    with responses.RequestsMock() as rsps:
-        rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.INVALID_JSON_DATA).read())
+        rsps.add(responses.GET, CuttlyProvider._API_URL, open(constants.CUTTLY_STATS_SUCCESS_DATA).read())
         yield rsps
 
 
