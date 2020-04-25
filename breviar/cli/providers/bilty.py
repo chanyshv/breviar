@@ -26,7 +26,7 @@ def configure():
 
 @bitly_group.command(help='Shorten a link')
 @click.argument('url')
-def shorten(url: str):
+def cut(url: str):
     if not path.exists(BITLY_CONFIG_PATH):
         raise NotConfigured('bitly')
     config = get_bitly_config()

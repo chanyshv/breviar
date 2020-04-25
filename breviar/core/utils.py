@@ -3,7 +3,7 @@ import enum
 import click
 import requests.exceptions
 
-from ..core.errors import SLinkError, NoResponse
+from ..core.errors import breviarError, NoResponse
 
 
 class SERVICES(enum.Enum):
@@ -14,7 +14,7 @@ class ErrorHandlingGroup(click.Group):
     def __call__(self, *args, **kwargs):
         try:
             return self.main(*args, **kwargs)
-        except SLinkError as e:
+        except breviarError as e:
             click.echo(str(e))
 
 

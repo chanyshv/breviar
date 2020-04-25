@@ -1,12 +1,12 @@
 import requests
 import cerberus
 
-from ...core.errors import WrongResponse, Forbidden, SLinkError
+from ...core.errors import WrongResponse, Forbidden, breviarError
 from ...core.utils import reraise_requests
 from ..main import Provider
 
 
-class BitlyError(SLinkError):
+class BitlyError(breviarError):
     def __init__(self, error_message: str, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.message = f'Bitly error. Error message :"{error_message}"'

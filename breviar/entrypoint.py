@@ -1,8 +1,8 @@
-from slink.cli import slink
+from breviar.cli import breviar
 
 
 def entrypoint():
-    slink()
+    breviar()
 
 
 if __name__ == '__main__':

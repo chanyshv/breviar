@@ -1,7 +1,7 @@
 from colorama import Fore, Style
 
 
-class SLinkError(RuntimeError):
+class breviarError(RuntimeError):
     _default_message = 'Unknown_error'
     _default_code = 'error'
 
@@ -14,11 +14,11 @@ class SLinkError(RuntimeError):
         return f'[{Fore.RED + self.code + Style.RESET_ALL}] {self.message}'
 
 
-class WrongResponse(SLinkError):
+class WrongResponse(breviarError):
     _default_message = 'Server sent wrong response'
 
 
-class NoResponse(SLinkError):
+class NoResponse(breviarError):
     _default_message = 'Server does not respond'
 
 

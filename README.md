@@ -1,12 +1,12 @@
 URL shortener cli.
 ## Installation
 ```shell script
-pip3 install slink
+pip3 install breviar
 ```
 
 ## Usage 
 ```
-Usage: slink [OPTIONS] COMMAND [ARGS]...
+Usage: breviar [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --help  Show this message and exit.
@@ -20,13 +20,9 @@ Commands:
 
 **Configure service**
 ```shell script
-slink configure -S bitly
+breviar configure
 ```
 **Shorten a link**
  ```shell script
-slink shorten https://russkie_vpered.com
-```
-or use a specific service
-```shell script
-slink shorten -S bitly https://russkie_vpered.com
+breviar shorten https://russkie_vpered.com
 ```

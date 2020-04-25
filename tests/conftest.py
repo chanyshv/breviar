@@ -4,8 +4,8 @@ import pytest
 import responses
 from mock_open import MockOpen
 
-from slink.core import BitlyProvider
-from slink.cli.constants import BITLY_CONFIG_PATH
+from breviar.core import BitlyProvider
+from breviar.cli.constants import BITLY_CONFIG_PATH
 from tests import constants
 
 

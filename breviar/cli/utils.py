@@ -5,8 +5,8 @@ import click
 import json
 import cerberus
 
-from slink.core.errors import SLinkError
-from slink.core.utils import SERVICES
+from breviar.core.errors import breviarError
+from breviar.core.utils import SERVICES
 from .constants import CONFIGS_PATH, BITLY_CONFIG_PATH
 from .errors import ConfigNotValid
 
@@ -31,6 +31,6 @@ class ErrorHandlingGroup(click.Group):
     def __call__(self, *args, **kwargs):
         try:
             return self.main(*args, **kwargs)
-        except SLinkError as e:
+        except breviarError as e:
             click.echo(str(e))
             sys.exit(1)
